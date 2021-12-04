@@ -1,5 +1,7 @@
 import {React} from 'react';
 import { Card, Alert, Form, Row, Col, Button, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './BookForm.css';
 
 const BookForm = () =>{
     return(
@@ -32,12 +34,12 @@ const BookForm = () =>{
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridEmail">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="email" placeholder="Enter Name" />
+                        <Form.Control type="text" placeholder="Enter Name" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="password" placeholder="Email" />
+                        <Form.Control type="email" placeholder="Email" />
                         </Form.Group>
 
                         
@@ -46,12 +48,12 @@ const BookForm = () =>{
                     <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Phone Number</Form.Label>
-                        <Form.Control type="password" placeholder="Phone Number" />
+                        <Form.Control type="phoneNumber" placeholder="Phone Number" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Adhar Card Number</Form.Label>
-                        <Form.Control type="password" placeholder="Adhar Card Number" />
+                        <Form.Control type="adharCard" placeholder="Adhar Card Number" />
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
@@ -94,7 +96,9 @@ const BookForm = () =>{
                         </Form.Group>
                     </Row>
                      <Button variant="primary" type="submit">
+                     <Link className="btn-1" to="/book/cars">
                         Submit
+                    </Link>
                     </Button>
             </Form>
             </Container>

@@ -13,18 +13,21 @@ import Cars from './pages/Cars';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Book from './Button/BookForm';
+import Cookies from 'js-cookie';
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from "react-router-dom";
 
-
+const AuthorizedStatus = () => {
+  return Cookies.get('authtoken')==="true" ? true : false
+}
 ReactDOM.render(
   <Router>
     <React.Fragment>
-      <Navbar />
+      <Navbar isAuth={AuthorizedStatus()} />
         <Switch>
           <Route exact path="/" render={()=>{
             return(
@@ -49,18 +52,26 @@ ReactDOM.render(
              )
            }}>
             </Route>
-           <Route exact path="/cars" render={()=>{
+            {/* <Route exact path="/login" render={()=>{
              return(
                <>
-                <Cars />
+                <a href = "http://localhost:3000/logout"></a>
+               </>
+             )
+           }}>
+              </Route> */}
+           <Route exact path="/book" render={()=>{
+             return(
+               <>
+               {AuthorizedStatus()? <Book /> :  window.location.href = "http://localhost:3000/login"} 
                </>
              )
            }}>
             </Route>
-            <Route exact path="/cars/book" render={()=>{
+            <Route exact path="/book/cars" render={()=>{
              return(
                <>
-                <Book />
+                <Cars />
                </>
              )
            }}>

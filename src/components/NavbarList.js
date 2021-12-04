@@ -2,9 +2,10 @@ import {React} from "react";
 import { Navbar, Nav} from 'react-bootstrap';
 import image1 from './../Images/WHEELZDRIVE-logos_white.png';
 import { Link } from 'react-router-dom';
+import Login from '../Button/Login';
 
 
-const NavbarList = () => {
+const NavbarList = (isAuth) => {
     return (
      <div>
      
@@ -22,12 +23,13 @@ const NavbarList = () => {
     <Nav className="navbar me-auto">
       <Link className="nav-link" to="/">Home</Link>
       <Link className="nav-link" to="/about">About</Link>
-      <Link className="nav-link" to="/cars">Cars</Link>
+      <Link className="nav-link" to="/book">Book</Link>
       <Link className="nav-link" to="/services">Services</Link>
       <Link className="nav-link" to="/contact">Contact Us</Link>
     </Nav>
     <Nav>
-      <button type="button" class="btn btn-primary btn-lg">LogIn/SignUp</button>
+    <Login isLoggedIn={isAuth}/>
+    {/* <Registration /> */}
    </Nav>
   </Navbar.Collapse>
 </Navbar>
