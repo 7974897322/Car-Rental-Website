@@ -53,6 +53,7 @@ ReactDOM.render(
            }}>
             </Route>
             {/* <Route exact path="/login" render={()=>{
+<<<<<<< HEAD
              return(
                <>
                 <a href = "http://localhost:3000/logout"></a>
@@ -64,6 +65,19 @@ ReactDOM.render(
              return(
                <>
                {AuthorizedStatus()? <Book /> :  window.location.href = "http://localhost:3000/login"} 
+=======
+             return(
+               <>
+                <a href = "http://localhost:3000/logout"></a>
+               </>
+             )
+           }}>
+              </Route> */}
+           <Route exact path="/cars" render={()=>{
+             return(
+               <>
+               {AuthorizedStatus()? <Cars /> :  window.location.href = "http://localhost:3000/login"} 
+>>>>>>> 46d939289cf48f6a4b069c3c8749893fe6b64c33
                </>
              )
            }}>
