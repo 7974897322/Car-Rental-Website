@@ -1,105 +1,102 @@
-import {React} from 'react';
-import { Card, Alert, Form, Row, Col, Button, Container } from 'react-bootstrap';
+import {React } from 'react';
+import { Form, Row, Col, Button, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './BookForm.css';
 
 const BookForm = () =>{
     return(
         <>
             <h1>Book your Vehicle</h1>
-            <Card>
-            <Card.Header>Terms and Conditions</Card.Header>
-            <Card.Body>
-            <Alert variant="success">
-                Charges of Per Car will be 2000/- rupees per day.
-            </Alert>
-            <Alert variant="success">
-                Minimum 4 Litre Petrol/Diesel will be provided by the Company.
-            </Alert>
-            <Alert variant="success">
-                While Returning the vehicle it must contain 2 Litres of Petrol/Diesel.
-            </Alert>
-            <Alert variant="success">
-                Incase of anything happen to the vehicle it will be the responsibility of client.
-            </Alert>
-            <Alert variant="success">
-                For ID Proof please provide your Adhar Card Number
-            </Alert>
-            </Card.Body>
-            </Card>
-            <hr />
+            
+        <Container className="book">
             <span><h3>Enter your Details.</h3></span>
-        <Container>
             <Form>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridEmail">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="email" placeholder="Enter Name" />
+                        <Form.Control type="text" placeholder="Enter Name" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="password" placeholder="Email" />
+                        <Form.Control type="email" placeholder="Email" />
                         </Form.Group>
 
-                        
                     </Row>
 
                     <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Phone Number</Form.Label>
-                        <Form.Control type="password" placeholder="Phone Number" />
+                        <Form.Control type="phoneNumber" placeholder="Phone Number" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Adhar Card Number</Form.Label>
-                        <Form.Control type="password" placeholder="Adhar Card Number" />
+                        <Form.Control type="adharCard" placeholder="Adhar Card Number" />
                         </Form.Group>
                     </Row>
-                    <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridPassword">
-                    <Form.Label>Pick-Up Date</Form.Label>
-                    <div>
-                        <input type="date" name="myDate" />
-                    </div>
-                    </Form.Group>
-                    <Form.Group as={Col} controlId="formGridPassword">
-                    <Form.Label>Drop-Off Date</Form.Label>
-                    <div>
-                        <input type="date" name="myDate" />
-                    </div>
-                    </Form.Group>
-                    </Row>
 
+                    <Row className="mb-3">
+
+                    <Form.Group as={Col} controlId="formGridState">
+                        <Form.Label>Gender</Form.Label>
+                        <Form.Select defaultValue="Choose...">
+                            <option>--Select One--</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Others</option>
+                            
+                        </Form.Select>
+                        </Form.Group>
+                        </Row>
+
+                        <Row className="mb-3">
+                   
                     <Form.Group className="mb-3" controlId="formGridAddress1">
                         <Form.Label>Address</Form.Label>
                         <Form.Control placeholder="1234 Main St" />
                     </Form.Group>
+                    </Row>
 
                     <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formGridCity">
-                        <Form.Label>City</Form.Label>
-                        <Form.Control />
-                        </Form.Group>
-
                         <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>State</Form.Label>
                         <Form.Select defaultValue="Choose...">
+                            <option>--Select One--</option>
                             <option>Chhattisgarh</option>
                             
                         </Form.Select>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridZip">
-                        <Form.Label>Zip</Form.Label>
-                        <Form.Control />
-                        </Form.Group>
-                    </Row>
-                     <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                    <Form.Group as={Col} controlId="formGridState">
+                        <Form.Label>City</Form.Label>
+                        <Form.Select defaultValue="Choose...">
+                            <option>--Select One--</option>
+                            <option>Bhilai</option>
+                            <option>Bilaspur</option>
+                            <option>Dongargarh</option>
+                            <option>Durg</option>
+                            <option>Rajnandgaon</option>
+                            <option>Raigarh</option>
+                            <option>Raipur</option>
+                            
+                        </Form.Select>
+                        </Form.Group>                     
+                    </Row>        
             </Form>
+
+            <Button variant="primary mb-5 mt-5" type="submit">
+                     <Link className="btn-1" to="/book/cars">
+                        Submit
+                    </Link>
+                    </Button>
+
             </Container>
 </>
     );
 }
 
 export default BookForm;
+
+
+

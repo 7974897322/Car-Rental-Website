@@ -10,21 +10,27 @@ import ServicesCard from './components/ServicesCard';
 import Footer from './components/Footer';
 import About from './pages/About';
 import Cars from './pages/Cars';
+import SelectDate from './pages/SelectDate';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Book from './Button/BookForm';
+import Cookies from 'js-cookie';
+import { Container } from 'react-bootstrap';
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from "react-router-dom";
 
-
+const AuthorizedStatus = () => {
+  return Cookies.get('authtoken')==="true" ? true : false
+}
 ReactDOM.render(
   <Router>
     <React.Fragment>
-      <Navbar />
+    <Container fluid>
+      <Navbar isAuth={AuthorizedStatus()} />
         <Switch>
           <Route exact path="/" render={()=>{
             return(
@@ -49,7 +55,23 @@ ReactDOM.render(
              )
            }}>
             </Route>
+            {/* <Route exact path="/login" render={()=>{
+             return(
+               <>
+                <a href = "http://localhost:3000/logout"></a>
+               </>
+             )
+           }}>
+              </Route> */}
            <Route exact path="/cars" render={()=>{
+             return(
+               <>
+               {AuthorizedStatus()? <SelectDate /> :  window.location.href = "http://localhost:3000/login"} 
+               </>
+             )
+           }}>
+            </Route>
+            <Route exact path="/cars/carsList" render={()=>{
              return(
                <>
                 <Cars />
@@ -57,7 +79,7 @@ ReactDOM.render(
              )
            }}>
             </Route>
-            <Route exact path="/cars/book" render={()=>{
+            <Route exact path="/cars/carsList/book" render={()=>{
              return(
                <>
                 <Book />
@@ -86,6 +108,7 @@ ReactDOM.render(
          </Switch>
          
       <Footer />
+      </Container>
     </React.Fragment>
   </Router>, 
   document.getElementById('root')
