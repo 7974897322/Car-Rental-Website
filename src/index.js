@@ -10,10 +10,12 @@ import ServicesCard from './components/ServicesCard';
 import Footer from './components/Footer';
 import About from './pages/About';
 import Cars from './pages/Cars';
+import SelectDate from './pages/SelectDate';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Book from './Button/BookForm';
 import Cookies from 'js-cookie';
+import { Container } from 'react-bootstrap';
 
 import {
   BrowserRouter as Router,
@@ -27,6 +29,7 @@ const AuthorizedStatus = () => {
 ReactDOM.render(
   <Router>
     <React.Fragment>
+    <Container fluid>
       <Navbar isAuth={AuthorizedStatus()} />
         <Switch>
           <Route exact path="/" render={()=>{
@@ -60,18 +63,26 @@ ReactDOM.render(
              )
            }}>
               </Route> */}
-           <Route exact path="/book" render={()=>{
+           <Route exact path="/cars" render={()=>{
              return(
                <>
-               {AuthorizedStatus()? <Book /> :  window.location.href = "http://localhost:3000/login"} 
+               {AuthorizedStatus()? <SelectDate /> :  window.location.href = "http://localhost:3000/login"} 
                </>
              )
            }}>
             </Route>
-            <Route exact path="/book/cars" render={()=>{
+            <Route exact path="/cars/carsList" render={()=>{
              return(
                <>
                 <Cars />
+               </>
+             )
+           }}>
+            </Route>
+            <Route exact path="/cars/carsList/book" render={()=>{
+             return(
+               <>
+                <Book />
                </>
              )
            }}>
@@ -97,6 +108,7 @@ ReactDOM.render(
          </Switch>
          
       <Footer />
+      </Container>
     </React.Fragment>
   </Router>, 
   document.getElementById('root')

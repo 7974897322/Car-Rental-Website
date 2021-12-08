@@ -10,20 +10,21 @@ const NavbarList = (isAuth) => {
      <div>
      
       <Navbar className="Navbar" collapseOnSelect expand="lg" bg="dark" variant="dark">
- 
+      <Link to="/">
   <img
   height = '50px'
   width = '300px'
     src={image1}
     alt='Car_logo'
     />
+    </Link>
   
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="navbar me-auto">
       <Link className="nav-link" to="/">Home</Link>
       <Link className="nav-link" to="/about">About</Link>
-      <Link className="nav-link" to="/book">Book</Link>
+      <Link className="nav-link" to="/cars">Cars</Link>
       <Link className="nav-link" to="/services">Services</Link>
       <Link className="nav-link" to="/contact">Contact Us</Link>
     </Nav>
