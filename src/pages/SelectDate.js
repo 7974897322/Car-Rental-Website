@@ -24,14 +24,14 @@ const SelectDate = () =>{
     if (dropDate && pickDate && checked && pickDate<=dropDate){
       return <Button variant="success mb-3" type="button" href="/cars/carsList">Submit</Button>
     } else {
-      return <Button variant="success mb-3" type="button" href="/cars/carsList" disabled >Submit</Button>
+      return <Button variant="danger mb-3" type="button" href="/cars/carsList" disabled >Submit</Button>
     };
   };
 
     return(
         <>
         <Container>
-            <h1>Please Select your Date</h1>
+            <h1>Please Select Your Dates</h1>
             <div className="Dates">
             <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridPassword">
@@ -80,7 +80,7 @@ const SelectDate = () =>{
                     <div className="tems-condition">
                 <h3>Terms & Conditions</h3>
                 <Button variant="primary mt-1 mb-1" onClick={() => setShow(true)}>
-                        Terms & Conditions.
+                        View
                     </Button>
 
                     <Modal
