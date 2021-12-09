@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Button } from "react-bootstrap";
-import image1 from './../Images/img-2.jpeg';
-import image2 from './../Images/img-1.jpeg';
+import image1 from './../Images/img-2.jpg';
+import image2 from './../Images/img-1.jpg';
 import image3 from './../Images/img-3.jpg';
 
 const CarouselSlide = () => {

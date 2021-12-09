@@ -36,12 +36,12 @@ ReactDOM.render(
             return(
               <>
               <Carousel />
-                {/* <Date /> */}
-                <hr />
+                
+                
                 <Card2 />
-                <hr />
+                
                 <Card />
-                <hr />
+               
                 <ServicesCard />
               </>
             )
